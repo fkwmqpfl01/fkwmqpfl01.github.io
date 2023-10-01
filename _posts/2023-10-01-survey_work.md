@@ -7,8 +7,6 @@ tags: article, nextjs, js
 
 # 딥러닝 통한 CCTV에서의 객체 위치 탐지 기술 동향
 
-##### 정보컴퓨터공학부 202055582 이지은
-
 ---
 _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는 기술은 자율 주행 자동차에 사각지대의 정보를 제공해 안전성 개선에 도움이 될 것으로 기대된다. 이 글에서는 여러 연구 실험 자료를 통해 CCTV에서의 객체 위치 탐지 기술의 발전 동향을 살펴보고, 사용되는 주요 딥러닝 모델을 비교해 본다. 위치 탐지 기술의 발전 동향을 조사해 본 결과, 주로 사용되는 딥러닝 모델이 CNN에서 YOLO로 변화하며 속도, 정확성 면에서 개선되고 있음을 확인하였다._  
 
@@ -53,7 +51,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; "C-ITS를 위한 CCTV 영상의 실시간 동적 객체 탐지 가속화" 논문을 보면, YOLO와 TensorRT를 함께 사용하여 동적 객체 탐지의 추론에 드는 시간을 눈에 띄게 단축했음을 알 수 있다. 이 연구에서는 YOLOv5s 모델, FP32 모델(YOLOv5s + TRT32), FP16 모델(YOLOv5s + TRT16), PyTorch를 이용하였으며, 공공 데이터 포털의 공개 데이터 6,000건을 8:1:1의 비율로 무작위로 나누어 각각을 학습, 검증, 테스트 데이터로 사용하였다.<br>    
 
 <img src = "../images/YOLO_TensorRT_result.png" width="50%" height="50%"><img src = "../images/YOLO_TensorRT_time.png" width="50%" height="50%"><br>
-<span style="font-size: 85%"><p style="text-align:left">&emsp; &emsp; &emsp; Figure 2. 객체 검출 모델의 성능 비교</p>&emsp; <p style="text-align:right">Figure 3. 객체 검출 모델의 추론 시간 비교&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p></span>
+<span style="font-size: 85% style="text-align:left">&emsp; &emsp; &emsp; Figure 2. 객체 검출 모델의 성능 비교</span>&emsp; <span style="font-size: 85% style="text-align:left">Figure 3. 객체 검출 모델의 추론 시간 비교&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
 
 &emsp; 위 그래프를 보면, 성능 면에서는 YOLO 모델과 YOLO + TensorRT 모델의 차이가 크지 않지만, 추론 시간의 차이는 크게 나타났음을 알 수 있다. YOLO 모델만 이용해도 90% 이상의 정확성을 보일 수 있지만 모델 최적화 엔진을 함께 사용함으로써 동적 객체 탐지 시간을 단축할 수 있음을 확인하였다는 점에서 의의가 있다. <br>   
 
