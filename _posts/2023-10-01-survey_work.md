@@ -71,18 +71,18 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 &emsp; CCTV에서의 객체 위치 검출 기술의 발전 동향에 대해 조사해 본 결과, CNN과 YOLO가 핵심 기술로 사용되고 있음을 알 수 있었다. 또한, 위치 탐지에 사용되는 딥러닝 모델인 CNN과 YOLO를 비교해 보는 작업도 수행하였다. 조사 결과를 다시 한 번 표로 정리하면 다음과 같다. <br> 
 
-<center><span style="font-size: 85%"><br>Figure 4. 오류 분석 : Fast R-CNN VS YOLO </span>
+<center><span style="font-size: 85%"><br>Table 4. CCTV에서의 객체 위치 탐지 기술의 발전 동향 </span>
 <br><img src = "../images/table4.png"></center>
 
- <center> 
-|&nbsp;&nbsp;    | &nbsp;비교 항목&nbsp; | &nbsp; CNN &nbsp;  |  &nbsp;YOLO&nbsp;  |   &nbsp;    원인 및 설명  &nbsp;     |
+ <center> <span style="font-size: 85%"><br>Table 5. 딥러닝 알고리즘인 CNN과 YOLO 상대적 비교 </span> 
+|&nbsp;&nbsp;    | &nbsp;비교 항목&nbsp; | &nbsp; CNN &nbsp;  |  &nbsp;YOLO&nbsp;  |   &emsp;    원인 및 설명  &nbsp;     |
 | : ---------- : | : --------- : |: ----- : | ----- | ------------------ |
-|&nbsp; 1 &nbsp; |   처리 속도   | &emsp; 느림 &emsp;  | &emsp; 빠름 &emsp; | &nbsp; YOLO의 인식, 분류 동시 수행 |
-|&nbsp; 2 &nbsp; |   정확성      | &emsp; 낮음 &emsp; | &emsp; 높음 &emsp;  | &nbsp; YOLO의 낮은 배경 오류 |
-|&nbsp; 3 &nbsp; | 지역화 정확도 | &emsp; 높음 &emsp; |&emsp;  낮음 &emsp;  | &nbsp; Fast R-CNN : 8.6%, YOLO : 19.0% |
-|&nbsp; 4 &nbsp; | 배경 정확도  | &emsp; 낮음  &emsp;| &emsp; 높음 &emsp; | &nbsp; Fast R-CNN : 13.6%, YOLO : 4.75% |
-|&nbsp; 5 &nbsp; | 겹쳐진 물체 판별 가능성&nbsp; &nbsp;| &emsp; 높음 &emsp;  | &emsp; 낮음 &emsp; | &nbsp; YOLO의 이미지 인식 방식 |
-|&nbsp; 6 &nbsp; | 디테일 정도  | &emsp; 높음 &emsp; | &emsp; 낮음 &emsp; | &nbsp; YOLO의 Down Sampling 사용 |
+|&nbsp; 1 &nbsp; |   처리 속도   | &emsp; 느림 &emsp;  | &emsp; 빠름 &emsp; | &emsp; YOLO의 인식, 분류 동시 수행 |
+|&nbsp; 2 &nbsp; |   정확성      | &emsp; 낮음 &emsp; | &emsp; 높음 &emsp;  | &emsp; YOLO의 낮은 배경 오류 |
+|&nbsp; 3 &nbsp; | 지역화 정확도 | &emsp; 높음 &emsp; |&emsp;  낮음 &emsp;  | &emsp; Fast R-CNN : 8.6%, YOLO : 19.0% |
+|&nbsp; 4 &nbsp; | 배경 정확도  | &emsp; 낮음  &emsp;| &emsp; 높음 &emsp; | &emsp; Fast R-CNN : 13.6%, YOLO : 4.75% |
+|&nbsp; 5 &nbsp; | 겹쳐진 물체 판별 가능성&nbsp; &nbsp;| &emsp; 높음 &emsp;  | &emsp; 낮음 &emsp; | &emsp; YOLO의 이미지 인식 방식 |
+|&nbsp; 6 &nbsp; | 디테일 정도  | &emsp; 높음 &emsp; | &emsp; 낮음 &emsp; | &emsp; YOLO의 Down Sampling 사용 |
 
 </center>
 &emsp; 최신 기술에서는 실시간 탐지에 더 뛰어난 YOLO를 이용함으로써 성능 개선이 이루어진 것으로 보인다. CCTV에서의 객체 위치 동기화 기술은 실시간 처리가 핵심 요소이므로 앞으로도 처리 속도가 빠르며 정확도도 높은 YOLO의 개발이 이어질 것으로 예상된다. 추후 해당 데이터를 자율 주행 데이터와 통합한다면 자율 주행의 안전성에 도움을 주는 효율적인 방안이 될 것으로 기대된다. <br> 
