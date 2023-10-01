@@ -51,6 +51,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; "C-ITS를 위한 CCTV 영상의 실시간 동적 객체 탐지 가속화" 논문을 보면, YOLO와 TensorRT를 함께 사용하여 동적 객체 탐지의 추론에 드는 시간을 눈에 띄게 단축했음을 알 수 있다. 이 연구에서는 YOLOv5s 모델, FP32 모델(YOLOv5s + TRT32), FP16 모델(YOLOv5s + TRT16), PyTorch를 이용하였으며, 공공 데이터 포털의 공개 데이터 6,000건을 8:1:1의 비율로 무작위로 나누어 각각을 학습, 검증, 테스트 데이터로 사용하였다.<br>    
 
 <img src = "../images/YOLO_TensorRT_result.png" width="50%" height="50%"><img src = "../images/YOLO_TensorRT_time.png" width="50%" height="50%"><br>
+&emsp; &emsp; &emsp;&emsp;&emsp;<span style="font-size: 85%">Figure 2. 객체 검출 모델의 성능 비교</span>
 <span style="font-size: 85%">&emsp; &emsp; &emsp;&emsp;&emsp; Figure 2. 객체 검출 모델의 성능 비교 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Figure 3. 객체 검출 모델의 추론 시간 비교&emsp;&emsp;&emsp;&emsp;&emsp;</span>
 
 &emsp; 위 그래프를 보면, 성능 면에서는 YOLO 모델과 YOLO + TensorRT 모델의 차이가 크지 않지만, 추론 시간의 차이는 크게 나타났음을 알 수 있다. YOLO 모델만 이용해도 90% 이상의 정확성을 보일 수 있지만 모델 최적화 엔진을 함께 사용함으로써 동적 객체 탐지 시간을 단축할 수 있음을 확인하였다는 점에서 의의가 있다. <br>   
