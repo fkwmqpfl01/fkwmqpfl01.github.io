@@ -52,7 +52,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 <img src = "../images/YOLO_TensorRT_result.png" width="50%" height="50%"><img src = "../images/YOLO_TensorRT_time.png" width="50%" height="50%"><br>
 &emsp; &emsp; &emsp;&emsp;&emsp;<span style="font-size: 85%">Figure 2. 객체 검출 모델의 성능 비교</span>
-<span style="font-size: 85%">&emsp; &emsp; &emsp;&emsp;&emsp; Figure 2. 객체 검출 모델의 성능 비교 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Figure 3. 객체 검출 모델의 추론 시간 비교&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+&emsp; &emsp; &emsp;&emsp;&emsp;Figure 3. 객체 검출 모델의 추론 시간 비교</span>
 
 &emsp; 위 그래프를 보면, 성능 면에서는 YOLO 모델과 YOLO + TensorRT 모델의 차이가 크지 않지만, 추론 시간의 차이는 크게 나타났음을 알 수 있다. YOLO 모델만 이용해도 90% 이상의 정확성을 보일 수 있지만 모델 최적화 엔진을 함께 사용함으로써 동적 객체 탐지 시간을 단축할 수 있음을 확인하였다는 점에서 의의가 있다. <br>   
 
@@ -71,7 +71,10 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 &emsp; CCTV에서의 객체 위치 검출 기술의 발전 동향에 대해 조사해 본 결과, CNN과 YOLO가 핵심 기술로 사용되고 있음을 알 수 있었다. 또한, 위치 탐지에 사용되는 딥러닝 모델인 CNN과 YOLO를 비교해 보는 작업도 수행하였다. 조사 결과를 다시 한 번 표로 정리하면 다음과 같다. <br>  
 
-| 제목 | 제목 | 제목 |
-| :--- | :---: | ---: |
-| 내용 | 내용 | 내용 |
-| 내용 | 내용 | 내용 |
+<center>
+| 발표 시점 | 2018.06 | 2021.06 | 2022.08 |
+| :---: | :---: | :---: | :---:|
+| 딥러닝 모델 | Darknet (CNN) | YOLOv4 | YOLOv5s (+TensorRT) |
+| 개발 환경 | Visual Studio 2015, QT | Kafka server | PyTorch |
+| 특징 |조도 변화에 민감하게 반응하지 않고 동적 객체 탐지가 가능하게 함.|객체 위치 탐지의 정확도를 높이고, 검출 정보를 웹에 성공적으로 시각화시킴.|TensorRT와 함꼐 사용함으로써 동적 객체 탐지에 소요되는 시간을 단축시킴.|
+</center>
