@@ -76,7 +76,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 <center><br><img src = "../images/CNN_YOLO_error.png" width="70%" height="60%" alt="CNN and YOLO error">
 <span style="font-size: 85%"><br>Figure 4. 오류 분석 : Fast R-CNN VS YOLO <a href="#footnote_9">9</a></span></center>
 
-&emsp; 하지만 위 그래프에서도 볼 수 있듯이 지역화 오류 확률은 YOLO가 Fast R-CNN에 비해 약 2배 높게 나타났으며, 그에 반해 배경 오류는 Fast R-CNN이 더 높게 나타났다. 또한, YOLO의 경우 이미지를 보고 학습을 하기에 공간적 제약성이 있어 가까이 붙어있는 물체를 판별하기 어려우며, Down Sampling을 사용하는 경우가 많아 CNN에 비해 섬세하지 못한 특징이 드러날 수도 있다. <br><br>
+&emsp; 하지만 위 그래프에서도 볼 수 있듯이 지역화 오류 확률은 YOLO가 Fast R-CNN에 비해 약 2배 높게 나타났으며, 그에 반해 배경 오류는 Fast R-CNN이 더 높게 나타났다. 또한, YOLO의 경우 이미지를 보고 학습을 하기에 공간적 제약성이 있어 가까이 붙어있는 물체를 판별하기 어려우며, Down Sampling을 사용하는 경우가 많아 CNN에 비해 섬세하지 못한 특징이 드러날 수도 있다. <br>
 
 ---
 
