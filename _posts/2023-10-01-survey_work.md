@@ -17,11 +17,12 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; C-ITS의 도로 인프라 센서에는 카메라, 라이다(Lidar), 레이더(RADAR)가 포함되는데, 이들은 자동차에 탑재되어 신뢰성 있는 자율 주행을 지원한다. 주변에서 흔히 볼 수 있는 CCTV는 카메라 센서에 해당한다. 그런데 CCTV의 경우, 이미 잘 구축되어 있음에도 불구하고 단순히 모니터링에만 이용되는 등 활용도가 매우 떨어지는 문제가 있다. CCTV가 물체를 인식하고 이들의 위치에 대한 정보를 얻어낼 수 있다면 C-ITS 서비스에 다양한 형태로 활용할 수 있을 것으로 기대된다. <br>   
 &emsp; 현재 구축된 CCTV에 이 기술을 실제로 적용한다면, 거의 모든 도로 위의 상황을 효율적으로 파악할 수 있을 것이다. 또, 자율 주행 자동차에 이 정보를 통합시킬 수 있다면 사각지대의 정보도 제공해 줄 수 있어 자율 주행 자동차의 안전성을 훨씬 높일 수 있을 것으로 기대된다. <br>   
 <center><img src = "../images/C-ITS.png" width="70%" height="40%"><br><span style="font-size: 85%">Figure1. C-ITS 시스템의 구성<sup>[3](#footnote_3)</sup></span></center>
-
+<br>Figure1. C-ITS 시스템의 구성<sup>[3](#footnote_3)</sup>{: style="text-align: center;"}
 ---
-<a name="footnote_1">1</a>: 자율 주행 기술 6단계의 가장 높은 단계이다. 완전 자동화 단계에서는 모든 주행 상황에서 운전자의 개입이 불필요하며, 운전자 없이 주행이 가능하다. 자율 주행 기술 발전 6단계에 대한 자세한 설명은 URL을 참고한다. : https://namu.wiki/w/%ED%8C%8C%EC%9D%BC:spriauto.jpg  <br>
+<a name="footnote_1">1</a>: 자율 주행 기술 6단계의 가장 높은 단계이다. 완전 자동화 단계에서는 모든 주행 상황에서 운전자의 개입이 불필요하며, 운전자 없이 주행이 가능하다. 자율 주행 기술 발전 6단계에 대한 자세한 설명은 [URL (클릭)]( https://namu.wiki/w/%ED%8C%8C%EC%9D%BC:spriauto.jpg )을 참고한다. <br>
 <a name="footnote_2">2</a>: C-ITS는 Cooperative-Intelligent Transport Systems의 약자로 협력 지능형 교통 시스템, 또는 차세대 지능형 교통 시스템으로 불린다.<br>
 <a name="footnote_3">2</a>: C-ITS는 Cooperative-Intelligent Transport Systems의 약자로 협력 지능형 교통 시스템, 또는 차세대 지능형 교통 시스템으로 불린다.<br>
+{: style="text-align: center;"}
 
 
 ## <span style="color:DarkSlateBlue">본론
