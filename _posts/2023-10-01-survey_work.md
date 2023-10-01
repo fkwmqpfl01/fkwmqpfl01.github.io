@@ -70,7 +70,9 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 ## <span style="color:DarkSlateBlue">결론
 
 &emsp; CCTV에서의 객체 위치 검출 기술의 발전 동향에 대해 조사해 본 결과, CNN과 YOLO가 핵심 기술로 사용되고 있음을 알 수 있었다. 또한, 위치 탐지에 사용되는 딥러닝 모델인 CNN과 YOLO를 비교해 보는 작업도 수행하였다. 조사 결과를 다시 한 번 표로 정리하면 다음과 같다. <br> 
-  
+
+<center><span style="font-size: 85%"><br>Figure 4. 오류 분석 : Fast R-CNN VS YOLO </span>
+<br><img src = "../images/table4.png" width="70%" height="60%"></center>
 
 
 | 발표 시점 &nbsp; &emsp;  | 2018.06 | 2021.06 | 2022.08 |
