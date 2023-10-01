@@ -64,6 +64,10 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 <center><br><span style="font-size: 85%">Table 3. 검출기의 성능 비교</span><br><img src = "../images/compare_CNN_YOLO.png" width="70%" height="60%"></center>
 
 <center><br><img src = "../images/CNN_YOLO_error.png" width="70%" height="60%"></center><span style="font-size: 85%">
-<br>Figure 4. 오류 분석 : Fast R-CNN VS YOLO </span>
+<br>Figure 4. 오류 분석 : Fast R-CNN VS YOLO </span>  
 
+&emsp; 하지만 위 그래프에서도 볼 수 있듯이 지역화 오류 확률은 YOLO가 Fast R-CNN에 비해 약 2배 높게 나타났으며, 그에 반해 배경 오류는 Fast R-CNN이 더 높게 나타났다. 또한, YOLO의 경우 이미지를 보고 학습을 하기에 공간적 제약성이 있어 가까이 붙어있는 물체를 판별하기 어려우며, Down Sampling을 사용하는 경우가 많아 CNN에 비해 섬세하지 못한 특징이 드러날 수도 있다. <br>
 
+## <span style="color:DarkSlateBlue">결론
+
+&emsp; CCTV에서의 객체 위치 검출 기술의 발전 동향에 대해 조사해 본 결과, CNN과 YOLO가 핵심 기술로 사용되고 있음을 알 수 있었다. 또한, 위치 탐지에 사용되는 딥러닝 모델인 CNN과 YOLO를 비교해 보는 작업도 수행하였다. 조사 결과를 다시 한 번 표로 정리하면 다음과 같다. <br>
