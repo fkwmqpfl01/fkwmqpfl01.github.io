@@ -10,7 +10,7 @@ tags: article, nextjs, js
 ##### 정보컴퓨터공학부 202055582 이지은
 
 ---
-> 요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는 기술은 자율 주행 자동차에 사각지대의 정보를 제공해 안전성 개선에 도움이 될 것으로 기대된다. 이 글에서는 여러 연구 실험 자료를 통해 CCTV에서의 객체 위치 탐지 기술의 발전 동향을 살펴보고, 사용되는 주요 딥러닝 모델을 비교해 본다. 위치 탐지 기술의 발전 동향을 조사해 본 결과, 주로 사용되는 딥러닝 모델이 CNN에서 YOLO로 변화하며 속도, 정확성 면에서 개선되고 있음을 확인하였다.
+_요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는 기술은 자율 주행 자동차에 사각지대의 정보를 제공해 안전성 개선에 도움이 될 것으로 기대된다. 이 글에서는 여러 연구 실험 자료를 통해 CCTV에서의 객체 위치 탐지 기술의 발전 동향을 살펴보고, 사용되는 주요 딥러닝 모델을 비교해 본다. 위치 탐지 기술의 발전 동향을 조사해 본 결과, 주로 사용되는 딥러닝 모델이 CNN에서 YOLO로 변화하며 속도, 정확성 면에서 개선되고 있음을 확인하였다._  
 
 ## <span style="color:DarkSlateBlue">서론
 
@@ -30,10 +30,9 @@ tags: article, nextjs, js
 
 <center><span style="font-size: 85%">Table 1. CNN 알고리즘 적용 시 검출 성능 결과</span></center><br>   
 <center> 
-<table>
-    <tr><th>title1</th><th>title2</th><th>title3</th></tr>
-    <tr><td>title1</td><td>title2</td><td>title3</td></tr>
-    <tr><td>title1</td><td>title2</td><td>title3</td></tr>
+<table border="1">
+<tr><td>1</td><td colspan="2">2, 3</td></tr>
+<tr><td>4</td><td>5</td><td>6</td></tr>
 </table>
 </center>
 
