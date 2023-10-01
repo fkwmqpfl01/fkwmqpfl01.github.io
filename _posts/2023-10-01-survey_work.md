@@ -45,3 +45,5 @@ tags: article, nextjs, js
 &emsp; "CCTV 영상을 활용한 동적 객체의 위치 추적 및 시각화 방안" 논문에서 YOLO 알고리즘을 이용해 학습하고, 최소 사각형 형태 및 변환 행렬 기술을 통해 웹 기반 시각화까지 성공한 모습을 보여주었다. 이 연구에서는 Bochkovskiy et al.(2020)의 YOLOv4 모델 및 Kafka 서버, Python, JSON 포맷을 이용하며, 공공데이터포털의 개방된 CCTV 영상 데이터를 활용해 실험이 진행되었다. <br>    
 
 <center><br><span style="font-size: 85%">Table 2. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위치 비교 결과</span></center><br>
+<br>   
+<center><br><span style="font-size: 85%">Table 2. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위치 비교 결과</span><img src = "../images/C-ITS.png" width="50%" height="60%"></center>
