@@ -30,12 +30,11 @@ tags: article, nextjs, js
 
 <center><span style="font-size: 85%">Table 1. CNN 알고리즘 적용 시 검출 성능 결과</span></center><br>   
 <center> 
-| 대상 | 차량 | 보행자 |
-| --- | --- | --- |
-| 시간대 | 테스트2 | 테스트3 |
-| 총량 | 테스트2 | 테스트3 |
-| 검출 수 | 테스트2 | 테스트3 |
-| 검출 비율 |
+<table>
+    <tr><th>title1</th><th>title2</th><th>title3</th></tr>
+    <tr><td>title1</td><td>title2</td><td>title3</td></tr>
+    <tr><td>title1</td><td>title2</td><td>title3</td></tr>
+</table>
 </center>
 
 &emsp; 위 표에서 확인할 수 있듯이, 차량의 경우는 조도 변화나 카메라의 설치 각도에 상관없이 모두 검출되어 안정적인 성능을 보였다. 반면, 보행자의 경우는 여러 환경 요인으로 인해 아직 검출이 부족한 모습을 보였음을 알 수 있다. 하지만 조도 변화에 큰 영향을 받지 않을 수 있도록 객체 검출 기술을 발전시켰다는 데서 의의가 있다. <br>   
