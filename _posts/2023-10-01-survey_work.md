@@ -52,4 +52,4 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; 2022년에는 YOLO와 더불어 TensorRT를 결합하여 객체 위치 추적에 대한 연구가 진행되었다. TensorRT는 모델 최적화 엔진으로 양자화, 그래프 최적화 등을 통해 연산을 최적화함으로써 딥러닝 모델의 추론 속도를 높이는 데 도움을 준다. <br>   
 &emsp; "C-ITS를 위한 CCTV 영상의 실시간 동적 객체 탐지 가속화" 논문을 보면, YOLO와 TensorRT를 함께 사용하여 동적 객체 탐지의 추론에 드는 시간을 눈에 띄게 단축했음을 알 수 있다. 이 연구에서는 YOLOv5s 모델, FP32 모델(YOLOv5s + TRT32), FP16 모델(YOLOv5s + TRT16), PyTorch를 이용하였으며, 공공 데이터 포털의 공개 데이터 6,000건을 8:1:1의 비율로 무작위로 나누어 각각을 학습, 검증, 테스트 데이터로 사용하였다.<br>    
 
-<center><img src = "../images/YOLO_TensorRT_result.png" width="50%" height="50%"><img src = "../images/YOLO_TensorRT_time.png" width="50%" height="50%"><br><span style="font-size: 85%">Figure 2. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위치 비교 결과</span></center>
+<center><img src = "../images/YOLO_TensorRT_result.png" width="50%" height="50%"><img src = "../images/YOLO_TensorRT_time.png" width="50%" height="50%"><br><span style="font-size: 85%">Figure 2. 객체 검출 모델의 성능 비교   Figure 3. 객체 검출 모델의 추론 시간 비교</span></center>
