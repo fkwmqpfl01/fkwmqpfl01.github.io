@@ -78,7 +78,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 ---
 
-<span style="color:DarkSlateBlue"> 
+<span style="color:Red"> 
 
 <a id="footnote_4">4</a>: 이태희 외, 「CCTV 영상 기반 딥러닝을 이용한 차량 및 보행자 계수 방법」(한국지능시스템학회 논문지 제28권 제3호, 2018) p4 <br>
 <a id="footnote_5">5</a>: 박상진 외, 「CCTV 영상을 활용한 동적 객체의 위치 추적 및 시각화 방안」(지적과 국토정보 제51권 제1호, 2021) p10 <br>
@@ -95,10 +95,10 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; CCTV에서의 객체 위치 검출 기술의 발전 동향에 대해 조사해 본 결과, CNN과 YOLO가 핵심 기술로 사용되고 있음을 알 수 있었다. 또한, 위치 탐지에 사용되는 딥러닝 모델인 CNN과 YOLO를 비교해 보는 작업도 수행하였다. 조사 결과를 다시 한 번 표로 정리하면 다음과 같다. <br> 
 
 <center><span style="font-size: 85%"><br>Table 4. CCTV에서의 객체 위치 탐지 기술의 발전 동향 </span>
-<br><img src = "../images/table4.png"></center>
+<br><img src = "../images/table4.png"  width="80%" height="60%"></center>
 
 <center><span style="font-size: 85%"><br>Table 5. 딥러닝 알고리즘인 CNN과 YOLO 상대적 비교</span>
-<br><img src = "../images/table5.png"></center>
+<br><img src = "../images/table5.png"  width="80%" height="60%"></center>
 
 &emsp; 최신 기술에서는 실시간 탐지에 더 뛰어난 YOLO를 이용함으로써 성능 개선이 이루어진 것으로 보인다. CCTV에서의 객체 위치 동기화 기술은 실시간 처리가 핵심 요소이므로 앞으로도 처리 속도가 빠르며 정확도도 높은 YOLO의 개발이 이어질 것으로 예상된다. 추후 해당 데이터를 자율 주행 데이터와 통합한다면 자율 주행의 안전성에 도움을 주는 효율적인 방안이 될 것으로 기대된다. <br> 
 
