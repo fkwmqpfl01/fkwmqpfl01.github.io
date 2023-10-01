@@ -9,7 +9,7 @@ tags: article, nextjs, js
 
 ---
 _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는 기술은 자율 주행 자동차에 사각지대의 정보를 제공해 안전성 개선에 도움이 될 것으로 기대된다. 이 글에서는 여러 연구 실험 자료를 통해 CCTV에서의 객체 위치 탐지 기술의 발전 동향을 살펴보고, 사용되는 주요 딥러닝 모델을 비교해 본다. 위치 탐지 기술의 발전 동향을 조사해 본 결과, 주로 사용되는 딥러닝 모델이 CNN에서 YOLO로 변화하며 속도, 정확성 면에서 개선되고 있음을 확인하였다._  
-
+<br>
 ## <span style="color:DarkSlateBlue">서론
 
 &emsp; CCTV를 이용한 객체의 위치 탐지 및 시각화를 위한 노력은 자율 주행 자동차의 상용화를 위해 지속해서 이어지고 있다. 카메라 센서인 CCTV를 통한 객체 위치 동기화 기술의 발전 동향 및 사용되는 알고리즘에 대해 연구 자료를 통해 알아보고자 한다. <br>   
@@ -18,24 +18,24 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; 현재 구축된 CCTV에 이 기술을 실제로 적용한다면, 거의 모든 도로 위의 상황을 효율적으로 파악할 수 있을 것이다. 또, 자율 주행 자동차에 이 정보를 통합시킬 수 있다면 사각지대의 정보도 제공해 줄 수 있어 자율 주행 자동차의 안전성을 훨씬 높일 수 있을 것으로 기대된다. 
 
 <br><center><img src = "../images/C-ITS.png" width="70%" height="40%"><br></center>
-<center>Figure1. C-ITS 시스템의 구성<sup>[3](#footnote_3)</sup><br></center>  
+<center>Figure1. C-ITS 시스템의 구성<a href="#footnote_3">3</a><br></center>  
 
 ---
 <a name="footnote_1">1</a> : 자율 주행 기술 6단계의 가장 높은 단계이다. 완전 자동화 단계에서는 모든 주행 상황에서 운전자의 개입이 불필요하며, 운전자 없이 주행이 가능하다. 자율 주행 기술 발전 6단계에 대한 자세한 설명은 [URL (클릭)]( https://namu.wiki/w/%ED%8C%8C%EC%9D%BC:spriauto.jpg )을 참고한다. <br>
 <a name="footnote_2">2</a>: C-ITS는 Cooperative-Intelligent Transport Systems의 약자로 협력 지능형 교통 시스템, 또는 차세대 지능형 교통 시스템으로 불린다.<br>
-<a name="footnote_3">3</a>: C-ITS는 Cooperative-Intelligent Transport Systems의 약자로 협력 지능형 교통 시스템, 또는 차세대 지능형 교통 시스템으로 불린다.<br>
+<a id="footnote_3">3</a>: C-ITS는 Cooperative-Intelligent Transport Systems의 약자로 협력 지능형 교통 시스템, 또는 차세대 지능형 교통 시스템으로 불린다.<br>
 
-
+<br>
 ## <span style="color:DarkSlateBlue">본론
 &emsp; 여러 가지 논문을 이용해 기술 발전 동향에 대한 조사를 진행하였으며, 범위를 2018년부터 현재까지로 지정하여 어떤 연구를 통해 기술 발전이 이루어지고 있는지 알아보았다. 추가로, 사용되는 주요 딥러닝 모델간의 비교를 통해 어떤 발전이 있는지 살펴보고자 한다. <br>   
 
 #### 1. CNN을 이용한 객체 탐지 방법
 
 &emsp; 2018년에는 딥러닝을 이용해서 CCTV 영상 내의 차량 및 보행자의 수를 정확히 검출하기 위한 기술 연구가 진행된 바 있다. 기존의 영상처리 알고리즘은 조도 변화와 화질 열화에 약한 성능을 보였기에, 딥러닝 알고리즘 중 CNN(Convolutional Neural Network, 합성곱 신경망)을 이용해 CCTV 영상 기반 차량 및 보행자 계수 정확성을 향상하고자 하는 움직임이 있었다. <br>   
-&emsp; "CCTV 영상 기반 딥 러닝을 이용한 차량 및 보행자 계수 방법" 논문에 따르면, CNN을 이용해 조도 변화에 민감하지 않은 객체 검출 기술을 구현할 수 있었다고 한다. 이 연구에서는 24의 convolution layer와 2개의 fully connected layer로 구성된 Darknet의 네트워크, Visual Studio 2015와 QT를 사용하며, 2대의 CCTV를 직접 설치하여 실험이 진행되었다. 또한 설치한 CCTV로부터 추출한 시간대별 샘플 데이터 1,941개와 다른 날짜의 시간대별 샘플 데이터 195개를 이용해 검증 데이터를 구성하였다. 사용된 딥러닝 알고리즘에 대한 실험 결과는 다음 표의 내용과 같다. <br>   
+&emsp; "CCTV 영상 기반 딥 러닝을 이용한 차량 및 보행자 계수 방법" 논문에 따르면, CNN을 이용해 조도 변화에 민감하지 않은 객체 검출 기술을 구현할 수 있었다고 한다. 이 연구에서는 24의 convolution layer와 2개의 fully connected layer로 구성된 Darknet의 네트워크, Visual Studio 2015와 QT를 사용하며, 2대의 CCTV를 직접 설치하여 실험이 진행되었다. 또한 설치한 CCTV로부터 추출한 시간대별 샘플 데이터 1,941개와 다른 날짜의 시간대별 샘플 데이터 195개를 이용해 검증 데이터를 구성하였다. 사용된 딥러닝 알고리즘에 대한 실험 결과는 다음 표의 내용과 같다.    
 
 <center><span style="font-size: 85%"><br>Table 1. CNN 알고리즘 적용 시 검출 성능 결과<sup>[2](#footnote_2)</sup></span>
-<br><img src = "../images/table1.png"  width="50%" height="50%"></center>
+<br><img src = "../images/table1.png"  width="70%" height="50%"></center>
 
 
 &emsp; 위 표에서 확인할 수 있듯이, 차량의 경우는 조도 변화나 카메라의 설치 각도에 상관없이 모두 검출되어 안정적인 성능을 보였다. 반면, 보행자의 경우는 여러 환경 요인으로 인해 아직 검출이 부족한 모습을 보였음을 알 수 있다. 하지만 조도 변화에 큰 영향을 받지 않을 수 있도록 객체 검출 기술을 발전시켰다는 데서 의의가 있다. <br>   
