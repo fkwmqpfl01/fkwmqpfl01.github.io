@@ -52,4 +52,13 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; 2022년에는 YOLO와 더불어 TensorRT를 결합하여 객체 위치 추적에 대한 연구가 진행되었다. TensorRT는 모델 최적화 엔진으로 양자화, 그래프 최적화 등을 통해 연산을 최적화함으로써 딥러닝 모델의 추론 속도를 높이는 데 도움을 준다. <br>   
 &emsp; "C-ITS를 위한 CCTV 영상의 실시간 동적 객체 탐지 가속화" 논문을 보면, YOLO와 TensorRT를 함께 사용하여 동적 객체 탐지의 추론에 드는 시간을 눈에 띄게 단축했음을 알 수 있다. 이 연구에서는 YOLOv5s 모델, FP32 모델(YOLOv5s + TRT32), FP16 모델(YOLOv5s + TRT16), PyTorch를 이용하였으며, 공공 데이터 포털의 공개 데이터 6,000건을 8:1:1의 비율로 무작위로 나누어 각각을 학습, 검증, 테스트 데이터로 사용하였다.<br>    
 
-<center><img src = "../images/YOLO_TensorRT_result.png" width="50%" height="50%"><img src = "../images/YOLO_TensorRT_time.png" width="50%" height="50%"><br><span style="font-size: 85%">Figure 2. 객체 검출 모델의 성능 비교   Figure 3. 객체 검출 모델의 추론 시간 비교</span></center>
+<img src = "../images/YOLO_TensorRT_result.png" width="50%" height="50%"><img src = "../images/YOLO_TensorRT_time.png" width="50%" height="50%"><br>
+<span style="font-size: 85%">Figure 2. 객체 검출 모델의 성능 비교   Figure 3. 객체 검출 모델의 추론 시간 비교</span>
+
+&emsp; 위 그래프를 보면, 성능 면에서는 YOLO 모델과 YOLO + TensorRT 모델의 차이가 크지 않지만, 추론 시간의 차이는 크게 나타났음을 알 수 있다. YOLO 모델만 이용해도 90% 이상의 정확성을 보일 수 있지만 모델 최적화 엔진을 함께 사용함으로써 동적 객체 탐지 시간을 단축할 수 있음을 확인하였다는 점에서 의의가 있다. <br>   
+
+#### 4. CNN과 YOLO의 비교
+
+&emsp; CNN(Convolutional Neural Network, 합성곱 신경망)은 필터를 통하여 이미지에 대한 정보를 추출하고, 그 정보를 바탕으로 이미지를 인식하는 딥러닝 알고리즘 중 하나이다. 반면 YOLO(You Only Look Once)는 이미지 내에 있는 객체의 위치를 한 번만 보고도 파악할 수 있는 알고리즘이다. 따라서 인식과 분류를 한 번에 실행하는 YOLO가 CNN에 비해 처리 속도가 빠르다. 또한 최소한의 배경 오류를 이용하기에 정확도 또한 YOLO가 높다고 할 수 있다. 이는 다음 표를 보고 확인할 수 있다. <br>   
+
+<center><br><span style="font-size: 85%">Table 3. 검출기의 성능 비교</span><br><img src = "../images/YOLOv4_result.png" width="50%" height="60%"></center>
