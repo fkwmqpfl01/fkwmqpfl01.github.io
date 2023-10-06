@@ -69,7 +69,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 <img src = "../images/YOLO_TensorRT_result.png" width="50%" height="50%" alt = "YOLO and TensorRT result"><img src = "../images/YOLO_TensorRT_time.png" width="50%" height="50%" alt="YOLO and TensorRT time result"><br>
 
-&emsp; 위 그래프의 결과를 참고해 계산하면, TensorRT 모델의 평균 mAP~50~값은 0.908, 평균 추론 시간은 2.2초로 나타났음을 알 수 있다. 즉, 성능 면에서는 YOLO 모델과 YOLO + TensorRT 모델의 차이가 크지 않지만, 추론 시간의 차이는 크게 나타났음을 알 수 있다. YOLO 모델만 이용해도 90% 이상의 정확성을 보일 수 있지만 모델 최적화 엔진을 함께 사용함으로써 동적 객체 탐지 시간을 단축할 수 있음을 확인하였다는 점에서 의의가 있다. <br><br>     
+&emsp; 위 그래프의 결과를 참고해 계산하면, TensorRT 모델의 평균 mAP~ 50 ~값은 0.908, 평균 추론 시간은 2.2초로 나타났음을 알 수 있다. 즉, 성능 면에서는 YOLO 모델과 YOLO + TensorRT 모델의 차이가 크지 않지만, 추론 시간의 차이는 크게 나타났음을 알 수 있다. YOLO 모델만 이용해도 90% 이상의 정확성을 보일 수 있지만 모델 최적화 엔진을 함께 사용함으로써 동적 객체 탐지 시간을 단축할 수 있음을 확인하였다는 점에서 의의가 있다. <br><br>     
 
 
 #### 4. CNN과 YOLO의 비교
