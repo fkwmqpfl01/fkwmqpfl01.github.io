@@ -107,7 +107,10 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 <a name="footnote_2">2</a>: C-ITS는 Cooperative-Intelligent Transport Systems의 약자로 협력 지능형 교통 시스템, 또는 차세대 지능형 교통 시스템으로 불린다.<br>
 <a id="footnote_3">3</a>: C-ITS 시범사업 홍보관, C-ITS 소개 자료 [URL](https://www.c-its.kr/introduction/component.do)<br>
 
-<a id="footnote_7">7</a>: 재현율 (Recall) = True Positive / (Ture Positive + False Positive)<br>
+<a id="footnote_4">4</a>: IoU (Intersection of Union) = 교집합 영역의 넓이/ 합집합 영역의 넓이 <br>
+<a id="footnote_5">5</a>: 박상진 외, 「CCTV 영상을 활용한 동적 객체의 위치 추적 및 시각화 방안」(지적과 국토정보 제51권 제1호, 2021) p7 <br>
+<a id="footnote_6">6</a>: FP32 모델(YOLOv5s + TRT32)은 그래프 최적화만 적용된 모델이고, FP16모델(YOLOv5s + TRT16)은 그래프 최적화와 더불어 양자화까지 적용된 모델이다.<br>
+<a id="footnote_7">7</a>: 재현율(Recall) = True Positive / True Positive + False Positive <br>  
 
 
 ## <span style="color:DarkSlateBlue">참고문헌</span>
