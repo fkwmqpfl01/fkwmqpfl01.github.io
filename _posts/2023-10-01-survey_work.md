@@ -63,7 +63,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; 2022년에는 YOLO와 더불어 TensorRT를 결합하여 객체 위치 추적에 대한 연구가 진행되었다. TensorRT는 모델 최적화 엔진으로 양자화, 그래프 최적화 등을 통해 연산을 최적화함으로써 딥러닝 모델의 추론 속도를 높이는 데 도움을 준다. <br>   
 &emsp; "C-ITS를 위한 CCTV 영상의 실시간 동적 객체 탐지 가속화" 논문을 보면, YOLO와 TensorRT를 함께 사용하여 동적 객체 탐지의 추론에 드는 시간을 눈에 띄게 단축했음을 알 수 있다. 이 연구에서는 YOLOv5s 모델, FP32 모델(YOLOv5s + TRT32), FP16 모델(YOLOv5s + TRT16)<a href="#footnote_6">6</a>, PyTorch를 이용하였으며, 공공 데이터 포털의 공개 데이터 6,000건을 8:1:1의 비율로 무작위로 나누어 각각을 학습, 검증, 테스트 데이터로 사용하였다.<br>    
 
-<center><br><span style="font-size: 85%">Table 4. 객체 검출 모델의 평균 정밀도 및 추론 시간 비교</span><br><img src = "../images/table4.png" width="70%" height="60%" alt="YOLOv5_result"></center>
+<center><br><span style="font-size: 85%">Table 4. 객체 검출 모델의 평균 정밀도 및 추론 시간 비교</span><br><img src = "../images/table4.png" width="60%" height="60%" alt="YOLOv5_result"></center>
 
 &emsp; 위 표의 결과를 참고해 계산하면, TensorRT 모델의 평균 mAP<sub>50</sub>값은 0.908, 평균 추론 시간은 2.2초로 나타났음을 알 수 있다. 즉, 성능 면에서는 YOLO 모델과 YOLO + TensorRT 모델의 차이가 크지 않지만, 추론 시간의 차이는 크게 나타났음을 알 수 있다. YOLO 모델만 이용해도 90% 이상의 정확성을 보일 수 있지만 모델 최적화 엔진을 함께 사용함으로써 동적 객체 탐지 시간을 단축할 수 있음을 확인하였다는 점에서 의의가 있다. <br><br>     
 
@@ -76,18 +76,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 <center><br><span style="font-size: 85%">Table 5. Faster R-CNN과 YOLOv5의 비교</span><br><img src = "../images/table5.png" width="90%" height="60%" alt="compare CNN and YOLO"></center>
 <br>
 &emsp; 위 표에서 항목의 오른쪽에 AVG를 통해 각 모델의 전체적인 평균 수치를 나타내었다. 표를 보면 YOLOv5가 Faster R-CNN에 비해 7.67% 높은 mAP값을 나타냈으며, 추론 시간 또한 YOLOv5가 Faster R-CNN에 비해 5.4배 적게 소요된다는 것을 알 수 있다. 이외에도 학습 손실이나 모델 크기 면에서도 YOLOv5가 낮은 값을 나타내며 더 좋은 성능을 보였다.  
-&emsp; 이를 통해 2018년의 CNN을 이용한 객체 탐지 방법보다 2022년의 YOLOv5를 이용한 객체 탐지 방법에서 성능 개선이 있음을 확인할 수 있다. 즉, 비교 결과를 통해 CCTV에서의 객체 위치 검출 기술이 발전하고 있음을 유추해 볼 수 있다. <br>
-
----
-
-<a id="footnote_4">4</a>: 이태희 외, 「CCTV 영상 기반 딥러닝을 이용한 차량 및 보행자 계수 방법」(한국지능시스템학회 논문지 제28권 제3호, 2018) p4 <br>
-<a id="footnote_5">5</a>: 박상진 외, 「CCTV 영상을 활용한 동적 객체의 위치 추적 및 시각화 방안」(지적과 국토정보 제51권 제1호, 2021) p10 <br>
-<a id="footnote_6">6</a>: FP32 모델(YOLOv5s + TRT32)은 그래프 최적화만 적용된 모델이고, FP16모델(YOLOv5s + TRT16)은 그래프 최적화와 더불어 양자화까지 적용된 모델이다.<br>
-<a id="footnote_7">7</a>: 한영석 외,「C-ITS를 위한 CCTV 영상의 실시간 동적 객체 탐지 가속화」(한국전자거래학회지 제27권 제3호, 2022) p5 <br>
-<a id="footnote_8">8</a>: 이용환 외,「객체 검출을 위한 CNN과 YOLO 성능 비교 실험」(반도체디스플레이기술학회지 제19권 제1호,2020) p5 <br>
-<a id="footnote_9">9</a>: 이용환 외,「객체 검출을 위한 CNN과 YOLO 성능 비교 실험」(반도체디스플레이기술학회지 제19권 제1호,2020) p6 <br><br>
-
-
+&emsp; 이를 통해 2018년의 CNN을 이용한 객체 탐지 방법보다 2022년의 YOLOv5를 이용한 객체 탐지 방법에서 성능 개선이 있음을 확인할 수 있다. 즉, 비교 결과를 통해 CCTV에서의 객체 위치 검출 기술이 발전하고 있음을 유추해 볼 수 있다. <br>  
 
 
 ## <span style="color:DarkSlateBlue">결론</span>
