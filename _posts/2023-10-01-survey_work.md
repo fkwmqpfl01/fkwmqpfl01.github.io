@@ -38,7 +38,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; 2018년에는 딥러닝을 이용해서 CCTV 영상 내의 차량 및 보행자의 수를 정확히 검출하기 위한 기술 연구가 진행된 바 있다. 기존의 영상처리 알고리즘은 조도 변화와 화질 열화에 약한 성능을 보였기에, 딥러닝 알고리즘 중 CNN(Convolutional Neural Network, 합성곱 신경망)을 이용해 CCTV 영상 기반 차량 및 보행자 계수 정확성을 향상하고자 하는 움직임이 있었다. <br>   
 &emsp; "CCTV 영상 기반 딥 러닝을 이용한 차량 및 보행자 계수 방법" 논문에 따르면, CNN을 이용해 조도 변화에 민감하지 않은 객체 검출 기술을 구현할 수 있었다고 한다. 이 연구에서는 24의 convolution layer와 2개의 fully connected layer로 구성된 Darknet의 네트워크, Visual Studio 2015와 QT를 사용하며, 2대의 CCTV를 직접 설치하여 실험이 진행되었다. 또한 설치한 CCTV로부터 추출한 시간대별 샘플 데이터 1,941개와 다른 날짜의 시간대별 샘플 데이터 195개를 이용해 검증 데이터를 구성하였다. 사용된 딥러닝 알고리즘에 대한 실험 결과는 다음 표의 내용과 같다.    
 
-<center><span style="font-size: 85%">Table 1. CNN 알고리즘 적용 시 검출 성능 결과<a href="#footnote_4">4</a></span>
+<center><span style="font-size: 85%">Table 1. CNN 알고리즘 적용 시 검출 성능 결과</span>
 <br><img src = "../images/table1.png"  width="80%" height="60%" alt ="CNN Performance Result"></center>
 
 
@@ -49,7 +49,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 &emsp; 2021년에는 영상 분석을 위한 인공지능 기술인 YOLO(You Only Look Once) 알고리즘을 이용한 동적 객체 위치 추적에 대한 연구가 진행되었다. YOLO(Redmon,2016)는 객체 인식과 분류를 차례로 수행하는 CNN과 달리 인식과 분류를 한 번에 수행할 수 있는 모델로 실시간에 가까운 처리가 가능하다. <br>   
 &emsp; "CCTV 영상을 활용한 동적 객체의 위치 추적 및 시각화 방안" 논문에서 YOLO 알고리즘을 이용해 학습하고, 최소 사각형 형태 및 변환 행렬 기술을 통해 웹 기반 시각화까지 성공한 모습을 보여주었다. 이 연구에서는 Bochkovskiy et al.(2020)의 YOLOv4 모델 및 Kafka 서버, Python, JSON 포맷을 이용하며, 공공 데이터 포털의 개방된 CCTV 영상 데이터를 활용해 실험이 진행되었다. <br>    
-<center><br><span style="font-size: 85%">Table 2. YOLOv4의 AP 결과<a href="#footnote_5">5</a></span><br><img src = "../images/YOLOv4_result.png" width="50%" height="60%" alt="YOLOv4_result"></center>
+<center><br><span style="font-size: 85%">Table 2. YOLOv4의 AP 결과</span><br><img src = "../images/table2.png" width="50%" height="60%" alt="YOLOv4_AP_result"></center>
 
 &emsp; 위 표를 보면 표준 정밀도인 AP의 값이 0.60-0.80 사이로 높게 나타난 모습을 확인할 수 있다. 이후 YOLO의 성능 변화 여부를 판단하기 위해 IoU<a href="#footnote_4">4</a>의 값을 0.5로 설정한 mAP~50~의 값을 평균 정밀도의 값으로 고려한다.
 
@@ -107,9 +107,10 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; 최신 기술에서는 실시간 탐지에 더 뛰어난 YOLO를 이용함으로써 성능 개선이 이루어진 것으로 보인다. CCTV에서의 객체 위치 탐지 기술은 실시간 처리가 핵심 요소이므로 앞으로도 처리 속도가 빠르며 정확도도 높은 YOLO의 개발이 이어질 것으로 예상된다. 추후 해당 데이터를 자율 주행 데이터와 통합한다면 자율 주행의 안전성에 도움을 주는 효율적인 방안이 될 것으로 기대된다. <br> <br>
 
 ---
-<a id="footnote_7">7</a>: 재현율 (Recall) = $|frac{True Positive} {Ture Positive + False Positive}<br>
+<a id="footnote_7">7</a>: 재현율 (Recall) = $${True Positive |over Ture Positive + False Positive}$$<br>
 
-$\frac{1}{2}$
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
+
 ## <span style="color:DarkSlateBlue">참고문헌
 
 [1] 이태희·김기주·윤경수·김광주·최두현,「CCTV 영상 기반 딥러닝을 이용한 차량 및 보행자 계수 방법」, 한국지능시스템학회 논문지 제28권 제3호, 219-224(16 pages), 2018  
