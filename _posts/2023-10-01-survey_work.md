@@ -49,10 +49,17 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 &emsp; 2021년에는 영상 분석을 위한 인공지능 기술인 YOLO(You Only Look Once) 알고리즘을 이용한 동적 객체 위치 추적에 대한 연구가 진행되었다. YOLO(Redmon,2016)는 객체 인식과 분류를 차례로 수행하는 CNN과 달리 인식과 분류를 한 번에 수행할 수 있는 모델로 실시간에 가까운 처리가 가능하다. <br>   
 &emsp; "CCTV 영상을 활용한 동적 객체의 위치 추적 및 시각화 방안" 논문에서 YOLO 알고리즘을 이용해 학습하고, 최소 사각형 형태 및 변환 행렬 기술을 통해 웹 기반 시각화까지 성공한 모습을 보여주었다. 이 연구에서는 Bochkovskiy et al.(2020)의 YOLOv4 모델 및 Kafka 서버, Python, JSON 포맷을 이용하며, 공공 데이터 포털의 개방된 CCTV 영상 데이터를 활용해 실험이 진행되었다. <br>    
+<center><br><span style="font-size: 85%">Table 2. YOLOv4의 AP 결과<a href="#footnote_5">5</a></span><br><img src = "../images/YOLOv4_result.png" width="50%" height="60%" alt="YOLOv4_result"></center>
 
-<center><br><span style="font-size: 85%">Table 2. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위치 비교 결과<a href="#footnote_5">5</a></span><br><img src = "../images/YOLOv4_result.png" width="50%" height="60%" alt="YOLOv4_result"></center>
+&emsp; 위 표를 보면 표준 정밀도인 AP의 값이 0.60-0.80 사이로 높게 나타난 모습을 확인할 수 있다. 이후 YOLO의 성능 변화 여부를 판단하기 위해 IoU<a href="#footnote_4">4</a>의 값을 0.5로 설정한 mAP~50~의 값을 평균 정밀도의 값으로 고려한다.
 
-&emsp; 위 표에서 _P'_ 는 변환된 공간 좌표계의 점을 의미하고, _P*_ 은 수직 교차점, _Err_ 는 두 점 사이의 거리를 나타낸다. 오차의 평균(Average)과 실횻값(Root Mean Square)이 각각 0.15m, 0.19m의 수치를 나타내었다는 것으로 보아 객체의 위치가 거의 정확히 탐지되었음을 알 수 있다. 카메라와 멀리 떨어진 영역에서의 심한 왜곡은 보완 사항이지만, 위치 동기화의 정확도를 높이고 이를 웹 시각화까지 시도했다는 점에서 의의가 있다. <br><br>    
+<center><br><span style="font-size: 85%">Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위치 비교 결과<a href="#footnote_5">5</a></span><br><img src = "../images/YOLOv4_result.png" width="50%" height="60%" alt="YOLOv4_result"></center>
+
+&emsp; 위 표에서 _P'_ 는 변환된 공간 좌표계의 점을 의미하고, _P*_ 은 수직 교차점, _Err_ 는 두 점 사이의 거리를 나타낸다. 오차의 평균(Average)이 각각 0.15m의 수치를 나타내었다는 것으로 보아 객체의 위치가 거의 정확히 탐지되었음을 알 수 있다. 카메라와 멀리 떨어진 영역에서의 심한 왜곡은 보완 사항이지만, 위치 동기화의 정확도를 높이고 이를 웹 시각화까지 시도했다는 점에서 의의가 있다. <br>
+
+<center><img src = "../images/C-ITS.png" width="70%" height="40%" alt="C-ITS 시스템 구성"><br><span style="font-size: 85%">Figure2. 좌표계 변환 - 두 좌표계에 대한 대응점 정의<a href="#footnote_5">5</a></span></center>
+
+<br>    
 
 
 #### 3. YOLO와 TensorRT를 결합한 객체 탐지 방법
@@ -61,22 +68,19 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; "C-ITS를 위한 CCTV 영상의 실시간 동적 객체 탐지 가속화" 논문을 보면, YOLO와 TensorRT를 함께 사용하여 동적 객체 탐지의 추론에 드는 시간을 눈에 띄게 단축했음을 알 수 있다. 이 연구에서는 YOLOv5s 모델, FP32 모델(YOLOv5s + TRT32), FP16 모델(YOLOv5s + TRT16)<a href="#footnote_6">6</a>, PyTorch를 이용하였으며, 공공 데이터 포털의 공개 데이터 6,000건을 8:1:1의 비율로 무작위로 나누어 각각을 학습, 검증, 테스트 데이터로 사용하였다.<br>    
 
 <img src = "../images/YOLO_TensorRT_result.png" width="50%" height="50%" alt = "YOLO and TensorRT result"><img src = "../images/YOLO_TensorRT_time.png" width="50%" height="50%" alt="YOLO and TensorRT time result"><br>
-&emsp; &emsp; &emsp;&emsp;<span style="font-size: 85%">Figure 2. 객체 검출 모델의 성능 비교<a href="#footnote_7">7</a></span>
-&emsp; &emsp; &emsp;&emsp;&emsp;<span style="font-size: 85%">Figure 3. 객체 검출 모델의 추론 시간 비교<a href="#footnote_7">7</a></span>
 
-&emsp; 위 그래프를 보면, 성능 면에서는 YOLO 모델과 YOLO + TensorRT 모델의 차이가 크지 않지만, 추론 시간의 차이는 크게 나타났음을 알 수 있다. YOLO 모델만 이용해도 90% 이상의 정확성을 보일 수 있지만 모델 최적화 엔진을 함께 사용함으로써 동적 객체 탐지 시간을 단축할 수 있음을 확인하였다는 점에서 의의가 있다. <br><br>     
+&emsp; 위 그래프의 결과를 참고해 계산하면, TensorRT 모델의 평균 mAP~50~값은 0.908, 평균 추론 시간은 2.2초로 나타났음을 알 수 있다. 즉, 성능 면에서는 YOLO 모델과 YOLO + TensorRT 모델의 차이가 크지 않지만, 추론 시간의 차이는 크게 나타났음을 알 수 있다. YOLO 모델만 이용해도 90% 이상의 정확성을 보일 수 있지만 모델 최적화 엔진을 함께 사용함으로써 동적 객체 탐지 시간을 단축할 수 있음을 확인하였다는 점에서 의의가 있다. <br><br>     
 
 
 #### 4. CNN과 YOLO의 비교
 
-&emsp; CNN(Convolutional Neural Network, 합성곱 신경망)은 필터를 통하여 이미지에 대한 정보를 추출하고, 그 정보를 바탕으로 이미지를 인식하는 딥러닝 알고리즘 중 하나이다. 반면 YOLO(You Only Look Once)는 이미지 내에 있는 객체의 위치를 한 번만 보고도 파악할 수 있는 알고리즘이다. 따라서 인식과 분류를 한 번에 실행하는 YOLO가 CNN에 비해 처리 속도가 빠르다. 또한 최소한의 배경 오류를 이용하기에 정확도 또한 YOLO가 높다고 할 수 있다. 이는 다음 표를 보고 확인할 수 있다. <br>   
-
-<center><br><span style="font-size: 85%">Table 3. 검출기의 성능 비교<a href="#footnote_8">8</a></span><br><img src = "../images/compare_CNN_YOLO.png" width="70%" height="60%" alt="compare CNN and YOLO"></center>
-
-<center><br><img src = "../images/CNN_YOLO_error.png" width="70%" height="60%" alt="CNN and YOLO error">
-<span style="font-size: 85%"><br>Figure 4. 오류 분석 : Fast R-CNN VS YOLO <a href="#footnote_9">9</a></span></center>
-
-&emsp; 하지만 위 그래프에서도 볼 수 있듯이 지역화 오류 확률은 YOLO가 Fast R-CNN에 비해 약 2배 높게 나타났으며, 그에 반해 배경 오류는 Fast R-CNN이 더 높게 나타났다. 또한, YOLO의 경우 이미지를 보고 학습을 하기에 공간적 제약성이 있어 가까이 붙어있는 물체를 판별하기 어려우며, Down Sampling을 사용하는 경우가 많아 CNN에 비해 섬세하지 못한 특징이 드러날 수도 있다. <br>
+&emsp; CNN(Convolutional Neural Network, 합성곱 신경망)은 필터를 통하여 이미지에 대한 정보를 추출하고, 그 정보를 바탕으로 이미지를 인식하는 딥러닝 알고리즘 중 하나이다. 반면 YOLO(You Only Look Once)는 이미지 내에 있는 객체의 위치를 한 번만 보고도 파악할 수 있는 알고리즘이다. 따라서 인식과 분류를 한 번에 실행하는 YOLO가 CNN에 비해 처리 속도가 빠르다. 또한 최소한의 배경 오류를 이용하기에 정확도 또한 YOLO가 높다고 할 수 있다. 이는 다음 표를 보고 확인할 수 있다.<br>  
+&emsp; 객체 검출 기술 발전을 확인하기 위해 발전한 형태인 Faster R-CNN과 YOLOv5를 비교하였다. 비교 내용은 다음 표를 보고 확인할 수 있다. <br>   
+   
+<center><br><span style="font-size: 85%">Table 5. Faster R-CNN과 YOLOv5의 비교<a href="#footnote_8">8</a></span><br><img src = "../images/compare_CNN_YOLO.png" width="70%" height="60%" alt="compare CNN and YOLO"></center>
+<br>
+&emsp; 위 표에서 항목의 오른쪽에 AVG를 통해 각 모델의 전체적인 평균 수치를 나타내었다. 표를 보면 YOLOv5가 Faster R-CNN에 비해 7.67% 높은 mAP값을 나타냈으며, 추론 시간 또한 YOLOv5가 Faster R-CNN에 비해 5.4배 적게 소요된다는 것을 알 수 있다. 이외에도 학습 손실이나 모델 크기 면에서도 YOLOv5가 낮은 값을 나타내며 더 좋은 성능을 보였다.  
+&emsp; 이를 통해 2018년의 CNN을 이용한 객체 탐지 방법보다 2022년의 YOLOv5를 이용한 객체 탐지 방법에서 성능 개선이 있음을 확인할 수 있다. 즉, 비교 결과를 통해 CCTV에서의 객체 위치 검출 기술이 발전하고 있음을 유추해 볼 수 있다. <br>
 
 ---
 
@@ -92,17 +96,20 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 ## <span style="color:DarkSlateBlue">결론
 
-&emsp; CCTV에서의 객체 위치 검출 기술의 발전 동향에 대해 조사해 본 결과, CNN과 YOLO가 핵심 기술로 사용되고 있음을 알 수 있었다. 또한, 위치 탐지에 사용되는 딥러닝 모델인 CNN과 YOLO를 비교해 보는 작업도 수행하였다. 조사 결과를 다시 한 번 표로 정리하면 다음과 같다. <br> 
+&emsp; CCTV에서의 객체 위치 검출 기술의 발전 동향에 대해 조사해 본 결과, CNN과 YOLO가 핵심 기술로 사용되고 있음을 알 수 있었다. 조사 결과를 다시 한 번 표로 정리하면 다음과 같다. <br> 
 
 <center><span style="font-size: 85%"><br>Table 4. CCTV에서의 객체 위치 탐지 기술의 발전 동향 </span>
 <br><img src = "../images/table4.png"  width="80%" height="60%"></center>
-
-<center><span style="font-size: 85%"><br>Table 5. 딥러닝 알고리즘인 CNN과 YOLO 상대적 비교</span>
+&emsp; CNN을 이용한 경우, 육안으로 분석한 내용을 기준으로 객체 검출 여부만을 측정하였기에 검출률 결과를 재현율<a href="#footnote_7">7</a>로만 나타낼 수 있었다. 따라서 YOLO와의 성능 비교가 어려웠기에 CNN과 YOLO를 비교해보는 작업도 수행하였다. 이를 통해 YOLO가 정밀도, 시간 측면에서 모두 발전되었음을 확인할 수 있었다. 다음은 CNN과 YOLO의 비교 내용이다. <br>
+<center><span style="font-size: 85%"><br>Table 5. Faster R-CNN과 YOLOv5의 비교</span>
 <br><img src = "../images/table5.png"  width="80%" height="60%"></center>
 
-&emsp; 최신 기술에서는 실시간 탐지에 더 뛰어난 YOLO를 이용함으로써 성능 개선이 이루어진 것으로 보인다. CCTV에서의 객체 위치 동기화 기술은 실시간 처리가 핵심 요소이므로 앞으로도 처리 속도가 빠르며 정확도도 높은 YOLO의 개발이 이어질 것으로 예상된다. 추후 해당 데이터를 자율 주행 데이터와 통합한다면 자율 주행의 안전성에 도움을 주는 효율적인 방안이 될 것으로 기대된다. <br> <br>
+&emsp; 최신 기술에서는 실시간 탐지에 더 뛰어난 YOLO를 이용함으로써 성능 개선이 이루어진 것으로 보인다. CCTV에서의 객체 위치 탐지 기술은 실시간 처리가 핵심 요소이므로 앞으로도 처리 속도가 빠르며 정확도도 높은 YOLO의 개발이 이어질 것으로 예상된다. 추후 해당 데이터를 자율 주행 데이터와 통합한다면 자율 주행의 안전성에 도움을 주는 효율적인 방안이 될 것으로 기대된다. <br> <br>
 
+---
+<a id="footnote_7">7</a>: 재현율 (Recall) = $|frac{True Positive} {Ture Positive + False Positive}<br>
 
+$\frac{1}{2}$
 ## <span style="color:DarkSlateBlue">참고문헌
 
 [1] 이태희·김기주·윤경수·김광주·최두현,「CCTV 영상 기반 딥러닝을 이용한 차량 및 보행자 계수 방법」, 한국지능시스템학회 논문지 제28권 제3호, 219-224(16 pages), 2018  
