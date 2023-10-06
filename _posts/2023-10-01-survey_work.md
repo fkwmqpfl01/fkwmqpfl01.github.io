@@ -11,7 +11,7 @@ tags: article, nextjs, js
 _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는 기술은 자율 주행 자동차에 사각지대의 정보를 제공해 안전성 개선에 도움이 될 것으로 기대된다. 이 글에서는 여러 연구 실험 자료를 통해 CCTV에서의 객체 위치 탐지 기술의 발전 동향을 살펴보고, 사용되는 주요 딥러닝 모델을 비교해 본다. 위치 탐지 기술의 발전 동향을 조사해 본 결과, 주로 사용되는 딥러닝 모델이 CNN에서 YOLO로 변화하며 속도, 정확성 면에서 개선되고 있음을 확인하였다._  
 <br>
 
-## <span style="color:DarkSlateBlue">서론
+## <span style="color:DarkSlateBlue">서론</span>
 
 &emsp; CCTV를 이용한 객체의 위치 탐지 및 시각화를 위한 노력은 자율 주행 자동차의 상용화를 위해 지속해서 이어지고 있다. 카메라 센서인 CCTV를 통한 객체 위치 동기화 기술의 발전 동향 및 사용되는 알고리즘에 대해 연구 자료를 통해 알아보고자 한다. <br>   
 &emsp; 현재 주목 받는 자율 주행 기술이 완전 자동화 단계<sup>[1](#footnote_1)</sup>에 가까워지기 위해서는 C-ITS 기술의 발전이 필수적이다. C-ITS<sup>[2](#footnote_2)</sup>란 V2X(vehicle to everything) 통신을 이용해 차량간(V2V), 차량-인프라간(V2I)의 양방향 정보 교환이 가능하도록 연결해 주는 시스템을 말하는데, 이를 통해 도로 위의 위험 요소나 돌발 상황 등에 신속하게 대응할 수 있기에 자율 주행의 핵심 기술로 주목받고 있다. <br>   
@@ -21,14 +21,9 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 <br> 
 <center><img src = "../images/C-ITS.png" width="70%" height="40%" alt="C-ITS 시스템 구성"><br><span style="font-size: 85%">Figure1. C-ITS 시스템의 구성<a href="#footnote_3">3</a></span></center>
 
----
-<a name="footnote_1">1</a> : 자율 주행 기술 6단계의 가장 높은 단계이다. 완전 자동화 단계에서는 모든 주행 상황에서 운전자의 개입이 불필요하며, 운전자 없이 주행이 가능하다. 자율 주행 기술 발전 6단계에 대한 자세한 설명 [URL]( https://namu.wiki/w/%ED%8C%8C%EC%9D%BC:spriauto.jpg )<br>
-<a name="footnote_2">2</a>: C-ITS는 Cooperative-Intelligent Transport Systems의 약자로 협력 지능형 교통 시스템, 또는 차세대 지능형 교통 시스템으로 불린다.<br>
-<a id="footnote_3">3</a>: C-ITS 시범사업 홍보관, C-ITS 소개 자료 [URL](https://www.c-its.kr/introduction/component.do)<br>
-
 <br>
 
-## <span style="color:DarkSlateBlue">본론
+## <span style="color:DarkSlateBlue">본론</span>
 
 &emsp; 여러 가지 논문을 이용해 기술 발전 동향에 대한 조사를 진행하였으며, 범위를 2018년부터 현재까지로 지정하여 어떤 연구를 통해 기술 발전이 이루어지고 있는지 알아보았다. 추가로, 사용되는 주요 딥러닝 모델간의 비교를 통해 어떤 발전이 있는지 살펴보고자 한다. <br><br>     
 
@@ -68,7 +63,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; 2022년에는 YOLO와 더불어 TensorRT를 결합하여 객체 위치 추적에 대한 연구가 진행되었다. TensorRT는 모델 최적화 엔진으로 양자화, 그래프 최적화 등을 통해 연산을 최적화함으로써 딥러닝 모델의 추론 속도를 높이는 데 도움을 준다. <br>   
 &emsp; "C-ITS를 위한 CCTV 영상의 실시간 동적 객체 탐지 가속화" 논문을 보면, YOLO와 TensorRT를 함께 사용하여 동적 객체 탐지의 추론에 드는 시간을 눈에 띄게 단축했음을 알 수 있다. 이 연구에서는 YOLOv5s 모델, FP32 모델(YOLOv5s + TRT32), FP16 모델(YOLOv5s + TRT16)<a href="#footnote_6">6</a>, PyTorch를 이용하였으며, 공공 데이터 포털의 공개 데이터 6,000건을 8:1:1의 비율로 무작위로 나누어 각각을 학습, 검증, 테스트 데이터로 사용하였다.<br>    
 
-<center><br><span style="font-size: 85%">Table 4. 객체 검출 모델의 평균 정밀도 및 추론 시간 비교<br><img src = "../images/table4.png" width="70%" height="60%" alt="YOLOv5_result"></center>
+<center><br><span style="font-size: 85%">Table 4. 객체 검출 모델의 평균 정밀도 및 추론 시간 비교</span><br><img src = "../images/table4.png" width="70%" height="60%" alt="YOLOv5_result"></center>
 
 &emsp; 위 표의 결과를 참고해 계산하면, TensorRT 모델의 평균 mAP<sub>50</sub>값은 0.908, 평균 추론 시간은 2.2초로 나타났음을 알 수 있다. 즉, 성능 면에서는 YOLO 모델과 YOLO + TensorRT 모델의 차이가 크지 않지만, 추론 시간의 차이는 크게 나타났음을 알 수 있다. YOLO 모델만 이용해도 90% 이상의 정확성을 보일 수 있지만 모델 최적화 엔진을 함께 사용함으로써 동적 객체 탐지 시간을 단축할 수 있음을 확인하였다는 점에서 의의가 있다. <br><br>     
 
@@ -95,7 +90,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 
 
-## <span style="color:DarkSlateBlue">결론
+## <span style="color:DarkSlateBlue">결론</span>
 
 &emsp; CCTV에서의 객체 위치 검출 기술의 발전 동향에 대해 조사해 본 결과, CNN과 YOLO가 핵심 기술로 사용되고 있음을 알 수 있었다. 조사 결과를 다시 한 번 표로 정리하면 다음과 같다. <br> 
 
@@ -108,10 +103,14 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; 최신 기술에서는 실시간 탐지에 더 뛰어난 YOLO를 이용함으로써 성능 개선이 이루어진 것으로 보인다. CCTV에서의 객체 위치 탐지 기술은 실시간 처리가 핵심 요소이므로 앞으로도 처리 속도가 빠르며 정확도도 높은 YOLO의 개발이 이어질 것으로 예상된다. 추후 해당 데이터를 자율 주행 데이터와 통합한다면 자율 주행의 안전성에 도움을 주는 효율적인 방안이 될 것으로 기대된다. <br> <br>
 
 ---
+<a name="footnote_1">1</a> : 자율 주행 기술 6단계의 가장 높은 단계이다. 완전 자동화 단계에서는 모든 주행 상황에서 운전자의 개입이 불필요하며, 운전자 없이 주행이 가능하다. 자율 주행 기술 발전 6단계에 대한 자세한 설명 [URL]( https://namu.wiki/w/%ED%8C%8C%EC%9D%BC:spriauto.jpg )<br>
+<a name="footnote_2">2</a>: C-ITS는 Cooperative-Intelligent Transport Systems의 약자로 협력 지능형 교통 시스템, 또는 차세대 지능형 교통 시스템으로 불린다.<br>
+<a id="footnote_3">3</a>: C-ITS 시범사업 홍보관, C-ITS 소개 자료 [URL](https://www.c-its.kr/introduction/component.do)<br>
+
 <a id="footnote_7">7</a>: 재현율 (Recall) = True Positive / (Ture Positive + False Positive)<br>
 
 
-## <span style="color:DarkSlateBlue">참고문헌
+## <span style="color:DarkSlateBlue">참고문헌</span>
 
 [1] 이태희·김기주·윤경수·김광주·최두현,「CCTV 영상 기반 딥러닝을 이용한 차량 및 보행자 계수 방법」, 한국지능시스템학회 논문지 제28권 제3호, 219-224(16 pages), 2018  
 [2] 박상진·조국·임준혁·김민찬,「CCTV 영상을 활용한 동적 객체의 위치 추적 및 시각화 방안」, 지적과 국토정보 제51권 제1호, 53-65(13 pages), 2021  
